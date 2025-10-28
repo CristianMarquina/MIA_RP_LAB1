@@ -3,11 +3,13 @@
 #     Definir significado de caracteres
 #     Especificar la estructura del archivo de entrada
 
-import os, json
+import os
+import json
+import sys
 
 file_name = "dom01.txt" #input("Ingresa el nombre del archivo de entrada (por ejemplo dom01.txt): ")
 in_path = os.path.join(".", "examplesthermo", file_name)
-output_file = "ontance.json" #input("Ingresa el nombre del archivo de salida (por ejemplo instance.json): ")
+output_file = "dom01.json" #input("Ingresa el nombre del archivo de salida (por ejemplo instance.json): ")
     
 output_dir = os.path.join(".", "instances")
 os.makedirs(output_dir, exist_ok=True)
@@ -129,6 +131,9 @@ def thermos(grid):    #Encuentra bulbos, construye paths completos y valida que 
     return found_bulbs, thermo_paths  
 
 def main():
+    # if len(sys.argv) != 3:
+    #     print("Uso: python3 step1_parse.py domXX.txt instance.json")
+    #     sys.exit(1)
     instance_data = read_instance(in_path)
     if instance_data is None:
         print("Error reading instance file. Exiting.")
