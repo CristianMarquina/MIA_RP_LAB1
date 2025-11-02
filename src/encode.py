@@ -4,7 +4,7 @@ import sys
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python src/encode.py instances/dom__.json facts/domain__.lp")
+        print("Usage: python src/encode.py examplesthermo/dom__.json facts/domain__.lp")
         sys.exit(1)
     json_file = sys.argv[1]
     out_lp = sys.argv[2]
@@ -56,7 +56,7 @@ def main():
         for line in facts:
             f.write(line + "\n")
 
-    print(f"[step2] OK → {out_lp} con {len(facts)} hechos.")
+    print(f"File saved to {out_lp} with {len(facts)} facts.")
 
 if __name__ == "__main__":
     main()

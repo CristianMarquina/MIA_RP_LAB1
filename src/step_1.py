@@ -7,12 +7,13 @@ import os
 import json
 import sys
 
-file_name = input("Ingresa el nombre del archivo de entrada (por ejemplo dom01.txt): ")
+file_name = input("Ingresa el nombre del archivo de entrada (por ejemplo dom01): ")
+output_file = file_name  # input("Ingresa el nombre del archivo de salida (por ejemplo dom01.json): ")
+file_name = file_name + ".txt"
+output_file = output_file + ".json"
+
 in_path = os.path.join(".", "examplesthermo", file_name)
-output_file = input("Ingresa el nombre del archivo de salida (por ejemplo instance.json): ")
-    
-output_dir = os.path.join(".", "instances")
-os.makedirs(output_dir, exist_ok=True)
+output_dir = os.path.join(".", "examplesthermo")
 
 out_path = os.path.join(output_dir, output_file)
 

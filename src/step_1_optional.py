@@ -3,12 +3,13 @@ import json
 import os
 
 # CONFIGURACIÓN DE ARCHIVOS
-file_name = input("Ingresa el nombre del archivo de entrada (por ejemplo dom07.txt): ")  # Nombre del archivo de entrada
-in_path = os.path.join(".", "examplesthermo", file_name)
+file_name = input("Ingresa el nombre del archivo de entrada (por ejemplo dom07): ")
+output_file = file_name  # input("Ingresa el nombre del archivo de salida (por ejemplo dom01.json): ")
+file_name = file_name + ".txt"
+output_file = output_file + ".json"
 
-output_file = input("Ingresa el nombre del archivo de salida (por ejemplo dom07.json): ")  # Nombre del archivo de salida
-output_dir = os.path.join(".", "instances")
-os.makedirs(output_dir, exist_ok=True)
+in_path = os.path.join(".", "examplesthermo_curved", file_name)
+output_dir = os.path.join(".", "examplesthermo_curved")
 
 out_path = os.path.join(output_dir, output_file)
 
