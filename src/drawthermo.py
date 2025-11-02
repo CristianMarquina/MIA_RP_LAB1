@@ -42,7 +42,7 @@ n = len(domain)
 
 # Check
 if len(filled) != n or any(len(r) != n for r in filled):
-    print("Error: dimensiones de solución y dominio no coinciden.")
+    print("Error: solution and domain dimensions do not match.")
     sys.exit(1)
 
 name={'R':'r', 'U':'u', 'L':'l', 'D':'d', '>':'rend', '<':'lend', '^':'uend', 'v':'dend'}

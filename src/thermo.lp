@@ -1,24 +1,23 @@
 % =========================================================
 % Thermometers — Step 3 (thermo.lp)
-% Necesita domain.lp con los hechos: dim/1, cell/2, bulb/2, prev/4, row_target/2, col_target/2
-% Salida: fill(R,C) para celdas llenas de mercurio.
+% Requires domain.lp with the facts: dim/1, cell/2, bulb/2, prev/4, row_target/2, col_target/2
+% Output: fill(R,C) for cells filled with mercury.
 % =========================================================
 
-% 1) ELECCIÓN: cada celda de un termómetro puede estar llena o no.
+% 1) CHOICE: each cell of a thermometer may be filled or not.
 { fill(R,C) } :- cell(R,C).
 
-% (opcional, por seguridad) Prohibir llenar celdas que no sean de termómetro.
+% (optional, for safety) Forbid filling cells that are not part of a thermometer.
 :- fill(R,C), not cell(R,C).
 
-% 2) CONTINUIDAD: si llenas (R,C) y tiene predecesor (PR,PC), el predecesor debe estar lleno.
-%    Esto fuerza que todo termómetro se llene como PREFIJO desde su bulbo.
+% 2) CONTINUITY: if you fill (R,C) and it has a predecessor (PR,PC), the predecessor must be filled.
+%    This forces each thermometer to be filled as a PREFIX starting from its bulb.
 :- fill(R,C), prev(R,C,PR,PC), not fill(PR,PC).
 
-% 3) RESTRICCIONES DE SUMAS EXACTAS por FILA y COLUMNA
+% 3) EXACT SUM RESTRICTIONS by ROW and COLUMN
 :- row_target(R,K), K != #count { C : fill(R,C) }.
 :- col_target(C,K), K != #count { R : fill(R,C) }.
 
-% 4) (opcional) Si quisieras mostrar también otras cosas, añade más #show.
-% Mostrar sólo la interpretación de interés para decode.py:
+% 4) (opcional) Show only the interpretation of interest for decode.py:
 #show fill/2.
 #show dim/1.
