@@ -47,9 +47,9 @@ def main():
             # If the path is (b0) -> (b1) -> (b2), we would generate: prev(b1,b0) and prev(b2,b1).
     
     # targets de columnas y filas
-    for c, k in enumerate(col_targets, start=1):
+    for c, k in enumerate(col_targets, start=0):
         facts.append(f"col_target({c},{k}).")
-    for r, k in enumerate(row_targets, start=1):
+    for r, k in enumerate(row_targets, start=0):
         facts.append(f"row_target({r},{k}).")
 
     with open(out_lp, 'w', encoding='utf-8') as f:

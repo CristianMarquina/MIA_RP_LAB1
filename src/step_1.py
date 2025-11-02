@@ -7,9 +7,9 @@ import os
 import json
 import sys
 
-file_name = "dom01.txt" #input("Ingresa el nombre del archivo de entrada (por ejemplo dom01.txt): ")
+file_name = input("Ingresa el nombre del archivo de entrada (por ejemplo dom01.txt): ")
 in_path = os.path.join(".", "examplesthermo", file_name)
-output_file = "dom01.json" #input("Ingresa el nombre del archivo de salida (por ejemplo instance.json): ")
+output_file = input("Ingresa el nombre del archivo de salida (por ejemplo instance.json): ")
     
 output_dir = os.path.join(".", "instances")
 os.makedirs(output_dir, exist_ok=True)
@@ -44,7 +44,7 @@ def read_instance(path):
         col_sum.append(int(i))
 
     row_sum = []
-    for i in col_line.split():
+    for i in row_line.split():
         row_sum.append(int(i))
 
     # El tamaño es de tipo (n x n)
