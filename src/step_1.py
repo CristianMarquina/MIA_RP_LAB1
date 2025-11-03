@@ -144,7 +144,6 @@ def main():
         return
     found_bulbs, thermo_paths = thermos_data
 
-    # formato json
     n = len(grid)
     bulbs_json = []
     for (r, c, dr, dc) in found_bulbs:
@@ -165,7 +164,6 @@ def main():
         "row_targets": row_sums,
         "col_targets": col_sums}
     
-    #guardan archivo json
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 

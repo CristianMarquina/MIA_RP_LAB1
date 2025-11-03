@@ -37,7 +37,7 @@ output_txt = os.path.join(SOLUTIONS_DIR, f"solution_{base_name}.txt")
 print("Starting full Thermometers pipeline...")
 print("-----------------------------------------")
 
-# STEP 1: ASCII to JSON
+
 print("Step 1:\nGenerating JSON instance...")
 input_name = os.path.splitext(os.path.basename(input_txt))[0]
 subprocess.run(["python", STEP1], input=f"{input_name}\n{base_name}.json\n".encode(), check=True)
@@ -46,7 +46,6 @@ if not os.path.exists(json_path):
     sys.exit(1)
 print(f"JSON created: {json_path}")
 
-# STEP 2: JSON to Facts.lp
 print("\nStep 2: \nEncoding to ASP facts...")
 subprocess.run(["python", ENCODE, json_path, facts_path], check=True)
 if not os.path.exists(facts_path):
@@ -54,7 +53,7 @@ if not os.path.exists(facts_path):
     sys.exit(1)
 print(f"Facts created: {facts_path}")
 
-# STEP 3: Solve puzzle using Clingo module
+
 print("\nStep 3: \Solving with Clingo (Python module)...")
 
 ctl = clingo.Control()
@@ -93,7 +92,7 @@ with open(output_txt, "w", encoding="utf-8") as f:
 
 print(f"Solution saved: {output_txt}")
 
-# STEP 4: Draw solution
+
 print("\nStep 4:\nDrawing final puzzle...")
 subprocess.run([sys.executable, DRAW, input_txt, output_txt], check=True)
 print(f"Drawing completed! Saved to solutions/solution_{base_name}.png")

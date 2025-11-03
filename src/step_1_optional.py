@@ -2,7 +2,6 @@ import sys
 import json
 import os
 
-# CONFIGURACIÓN DE ARCHIVOS
 file_name = input("Enter the name of the input file (for example, dom07):")
 output_file = file_name 
 file_name = file_name + ".txt"
